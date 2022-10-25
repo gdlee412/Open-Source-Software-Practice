@@ -266,7 +266,7 @@ document.querySelector("#add") returns an HTML element whose id is "add"
     types: "click", "dblclick", "mouseenter", "mouseleave", "keydown",...
     https://developer.mozilla.org/en-US/docs/Web/Events
 
-let button = document.querySelector("#add);
+let button = document.querySelector("#add");
 
 button.addEventListener("click", () => {
     console.log('Clicked!');
@@ -280,12 +280,12 @@ To get a text in an input box, first select the input box
     document.querySelector("#task-input")
     (element).value contains value of elemet
 
-let button = document.querySelector("#add);
+let button = document.querySelector("#add");
 
 button.addEventListener("click", () => {
     // 1. Read text in "#task-input"
     let input = document.querySelector("#task-input");
-    let task - input.value;
+    let task = input.value;
     console.log(task);
 
     // 2. Append the text to #todo-list
@@ -297,12 +297,12 @@ document.createElement(tagName) creates a new tag in memor
 you must append the created tag to an element that is on screen to make it visible
 dont forget to add classes for styling
 
-let button = document.querySelector("#add);
+let button = document.querySelector("#add");
 
 button.addEventListener("click", () => {
     // 1. Read text in "#task-input"
     let input = document.querySelector("#task-input");
-    let task - input.value;
+    let task = input.value;
 
     // 2. Append the text to #todo-list
     let newTask = document.createElement("div");
@@ -322,12 +322,12 @@ button.addEventListener("click", () => {
 ### Clearing the Input
 Finally, clear the input once a task is added
 
-let button = document.querySelector("#add);
+let button = document.querySelector("#add");
 
 button.addEventListener("click", () => {
     // 1. Read text in "#task-input"
     let input = document.querySelector("#task-input");
-    let task - input.value;
+    let task = input.value;
 
     // 2. Append the text to #todo-list
     let newTask = document.createElement("div");
@@ -343,12 +343,12 @@ button.addEventListener("click", () => {
 
 add an if statement to prevent empty tasks from being added
 
-let button = document.querySelector("#add);
+let button = document.querySelector("#add");
 
 button.addEventListener("click", () => {
     // 1. Read text in "#task-input"
     let input = document.querySelector("#task-input");
-    let task - input.value;
+    let task = input.value;
 
     if(!task.length) return;
 
