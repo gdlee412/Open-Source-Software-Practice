@@ -121,7 +121,7 @@ button.addEventListener("click", () => {
     // 3. Create a new task item and attack it to #todo-lists
     addToList(task);
 
-    // 3. Clear #task-input
+    // 4. Clear #task-input
     input.value = "";
 })
 
@@ -150,14 +150,14 @@ function addToList(task) {
     if(task.type === Type.Todo) {
         let buttonDone = document.createElement("button");
         buttonDone.className = "btn btn-sm btn-success me-1";
-        buttonDone.innerHTML = "<i class = "bi bi-check"></i>";
+        buttonDone.innerHTML = '<i class = "bi bi-check"></i>';
         div.appendChild(buttonDone);
     }
 
     //add the remove button
     let buttonRemove = document.createElement("button");
     buttonRemove.className = "btn btn-sm btn-danger";
-    buttonRemove.innerHTML = "<i class = "bi bi-class"></i>";
+    buttonRemove.innerHTML = '<i class = "bi bi-x"></i>';
     div.appendChild(buttonRemove);
 
     //depending on type, append to todo or done list
@@ -172,7 +172,7 @@ remove the div if clicked
 
 let buttonRemove = document.createElement("button");
 buttonRemove.className = "btn btn-sm btn-danger";
-buttonRemove.innerHTML = "<i class = "bi bi-class"></i>";
+buttonRemove.innerHTML = "<i class = \"bi bi-x\"></i>";
 div.appendChild(buttonRemove);
 
 buttonRemove.addEventListener("click", () => {
