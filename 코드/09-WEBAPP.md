@@ -384,4 +384,4 @@ Bootstrap is a collection of CSS styles (+JS code) that can accelerate web devel
 JavaScript brings interactivity to your app
     - There are special function that bridge HTML and JS such as document.querySelector
     - (element).addEventListener(name, handler) sets up a function that is called each time a specific event happens
-    - Accessing the value of <input> tags via the value attributs
+    - Accessing the value of <input> tags via the value attributes
