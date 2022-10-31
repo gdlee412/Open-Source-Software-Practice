@@ -108,9 +108,9 @@ let button = document.querySelector("#add");
 button.addEventListener("click", () => {
     // 1. Read text in "#task-input"
     let input = document.querySelector("#task-input");
-    let task = input.value;
+    let text = input.value;
 
-    if(!task.length) return;
+    if(!text.length) return;
 
     // 2. Create a new Task object
     let task = {
