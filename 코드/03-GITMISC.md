@@ -6,13 +6,13 @@
 
 ## Tagging commits
 - giving a human-readable name to a commit
-- git tag -a <tag_name> -m <message> -> gives <tag_name> to main branch
-- git push origin <tag_name> -> explicitly pushing <tag_name> (git push does not push tags by default)
+- git tag -a ```<tag_name>``` -m ```<message>``` -> gives ```<tag_name>``` to main branch
+- git push origin ```<tag_name>``` -> explicitly pushing ```<tag_name>``` (git push does not push tags by default)
 
 ## Branch vs Tag
 - Branch: a line of development
 - Tag: an alias for a complex commit id
-- git checkout <branch_name>/<tag_name> -> checkout the commit that a branch or tag refers to
+- git checkout ```<branch_name>```/```<tag_name>``` -> checkout the commit that a branch or tag refers to
 - branch pointer advances through a branch every time you make a commit
 - tag never changes unless you delete and create a new one
 
@@ -92,16 +92,16 @@ Last Commit (HEAD) <------> Changed Staged Index <------> Changed / Not staged w
 
 ## Git restore
 git restore -> does not move HEAD (does not change the history)
-git restore --staged <file> -> unstages files
-git restore <file> -> discards changes and unstages file
+git restore --staged ```<file>``` -> unstages files
+git restore ```<file>``` -> discards changes and unstages file
 
 ## restore reset summary
 forgot to add files or want to edit the last commit message
     git commit --amend 
 
 did something wrong but havent committed yet
-    git restore --staged <file> ->unstage file
-    git restore <file> -> unstage and discard changes
+    git restore --staged ```<file>``` ->unstage file
+    git restore ```<file>``` -> unstage and discard changes
 
 did something wrong and committed changes
     git reset --soft HEAD~ -> rarely used
@@ -110,11 +110,11 @@ did something wrong and committed changes
 
 ## Git Rebase
 - git rebase -> replays the changes committed to a branch on a different branch
-- git rebase --onto <newparent> <oldparent> <until> -> rebases the common branch of <oldparent> and <until> behind <newparent>
+- git rebase --onto ```<newparent>``` ```<oldparent>``` ```<until>``` -> rebases the common branch of ```<oldparent>``` and ```<until>``` behind ```<newparent>```
 - git rebase --continue -> used after resolving merge conflicts
 - merge and rebase -> both methods to handle diverged commit history
 - merge -> combines the branches
-- git rebase <branch> -> connects the current branch behind <branch>
+- git rebase ```<branch>``` -> connects the current branch behind ```<branch>```
 
 - merge example
 - git checkout main
