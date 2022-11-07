@@ -19,9 +19,9 @@ local git repo(.git) stores commits
 ## workflow
 git init -> initializes a git repository
 
-git clone <existing git repo> -> clones a git repo
+git clone ```<existing git repo>``` -> clones a git repo
 
-git add <file> -> adds file to staging area
+git add ```<file>``` -> adds file to staging area
 
 git add . -> adds all untracked or modified files to the stage
 
@@ -33,13 +33,13 @@ git commit --amend -> commiting additional files
 
 git status -> checks state of files
 
-git restore --staged <file> -> unstages a file
+git restore --staged ```<file>``` -> unstages a file
 
 git restore --staged . -> unstages all staged files and becomes 
 untracked
 
 .gitignore -> can add files for git to ignore
 
-git rm <file> -> remove a file
+git rm ```<file>``` -> remove a file
 
-git rm --cached <file> -> remove a file from repo only
+git rm --cached ```<file>``` -> remove a file from repo only
