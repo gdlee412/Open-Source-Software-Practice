@@ -7,13 +7,14 @@ Let's improve SKKU-Todo
 - Mark as done
 
 Skeleton code
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <!--Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+    
         <!--Bootstrap CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
@@ -77,10 +78,12 @@ Skeleton code
     
     </body>
 </html>
+```
 
 ## HTML
 We need two buttons for each task item
 
+```
 <div id="todo-list">
     <div class="task bg-light p-1 rounded-2 ps-2 d-flex aligh-items-center">
         <span class="me-auto">Task text</span>
@@ -92,12 +95,14 @@ We need two buttons for each task item
         </button>
     </div>
 </div>
+```
 
 ## Adding a Task
 we will manage a task as an object with the following properties:
 1. text: string, the task name
 2. type: number, the task type (1 for todo and 2 for done)
 
+```js
 const Type = {
     Todo: 1,
     Done: 2,
@@ -124,18 +129,20 @@ button.addEventListener("click", () => {
     // 4. Clear #task-input
     input.value = "";
 })
+```
 
-Function addToList receives a task object and creates a list object
-Depending on task.type, item will append to either #todo-list or #done-list
+- Function addToList receives a task object and creates a list object
+- Depending on task.type, item will append to either #todo-list or #done-list
 
-To add to list, we must generate an HTML code
+- To add to list, we must generate an HTML code
 
-Our weapons:
-    document.createELement(name)
-    element.appendChild(child)
-    element.className = "abc"
-    element.innerHTML = "<i></i>"
+- Our weapons:
+    - document.createELement(name)
+    - element.appendChild(child)
+    - element.className = "abc"
+    - element.innerHTML = "```<i></i>```"
 
+```js
 function addToList(task) {
     let div = document.createElement("div");
     div.className = "task bg-light p-1 rounded-2 ps-2 d-flex align-items-center";
@@ -164,12 +171,13 @@ function addToList(task) {
     let list = document.querySelector(task.type === Type.Todo ? "#todo-list" : "#done-list");
     list.appendChild(div);
 }
+```
 
 ## Removing a Tasks
 Now add the functionality of the remove button
 remove the div if clicked
 
-
+```js
 let buttonRemove = document.createElement("button");
 buttonRemove.className = "btn btn-sm btn-danger";
 buttonRemove.innerHTML = "<i class = \"bi bi-x\"></i>";
@@ -182,16 +190,17 @@ buttonRemove.addEventListener("click", () => {
 //depending on type, append to todo or done list
 let list = document.querySelector(task.type === Type.Todo ? "#todo-list" : "#done-list");
 list.appendChild(div);
+```
 
-The variable div was not defined in the function addEventListener, but inner functions have access to the variables of outer function
-div was included in the environment of the function
+- The variable div was not defined in the function addEventListener, but inner functions have access to the variables of outer function
+- div was included in the environment of the function
 
-## Saving and lOading the State
-Our app is currently volatile, disappearing after every refresh
-Let's save the tasks using localStorage: data persists even if you exit the browser
+## Saving and loading the State
+- Our app is currently volatile, disappearing after every refresh
+- Let's save the tasks using localStorage: data persists even if you exit the browser
 
-localStorage.setItem(key, value): associates a string value to key
-localStorage.getItem(key) returns the value associated with key
+- localStorage.setItem(key, value): associates a string value to key
+- localStorage.getItem(key) returns the value associated with key
 
 ### 1. Defining the States
 When implementing saving/loading, consider the following:
@@ -203,14 +212,15 @@ When implementing saving/loading, consider the following:
 SKKU-Todo can be defined as an array of tasks
 
 We can maintain this state using a global array, tasks
-
+```s
 let tasks = [];
-
+```
 ### 2. Changing the State
-(addition): when new task is added, push the task object to tasks
-(deletion): when task is removed, filter out the task object from tasks
+- (addition): when new task is added, push the task object to tasks
+- (deletion): when task is removed, filter out the task object from tasks
 
 ADDITION:
+```js
 // 2. Create a new task object
 let task = {
     text: text,
@@ -219,25 +229,31 @@ let task = {
 
 //3. Append the new Task objects to tasks
 tasks.push(task);
+```
 
 DELETION:
+```js
 buttonRemove.addEventListener("click", () => {
     div.remove();
     tasks = tasks.filter(t => t !== task);
 })
+```
 
 ### 3. Saving the State
-Save the tasks array in the local storage
-Since local storage can only store string values, convert the objects to string
-JSON.stringify(obj) does this
+- Save the tasks array in the local storage
+- Since local storage can only store string values, convert the objects to string
+- JSON.stringify(obj) does this
 
+```js
 function saveTasks(){
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+```
 
 call save Tasks every time user changes the state
 
 ADDITION:
+```js
 // 2. Create a new task object
 let task = {
     text: text,
@@ -247,22 +263,26 @@ let task = {
 //3. Append the new Task objects to tasks
 tasks.push(task);
 saveTasks();
+```
 
 DELETION:
+```js
 buttonRemove.addEventListener("click", () => {
     div.remove();
     tasks = tasks.filter(t => t !== task);
     saveTasks();
 })
+```
 
 ### 4. Loading the State
 When app is loaded, read the state string from local storage
 set tasks
-populate list items
+- populate list items
 
-when the app is loaded -> event handling
+- when the app is loaded -> event handling
     - event fired by browser, not user
 
+```js
 window.addEventListener("load", () => {
     loadTasks();
 });
@@ -281,23 +301,24 @@ function loadTasks(){
     });
     */
 }
+```
 
 ## Let's Publish
-Electron is a framework that builds cross-platform desktop apps using Web technologies
-    Slogan: If you can build a website, you can build a desktop application
-https://www.elecytonjs.org/
-https://www.electronjs.org/docs/tutorial/quick-start
+- Electron is a framework that builds cross-platform desktop apps using Web technologies
+    - Slogan: If you can build a website, you can build a desktop application
+- https://www.elecytonjs.org/
+- https://www.electronjs.org/docs/tutorial/quick-start
 
-You need at least four files:
-1. package.json: create using npm init
-2. main.js: use default file from official documentation
+- You need at least four files:
+    1. package.json: create using npm init
+    2. main.js: use default file from official documentation
             https://www.electronjs.org/docs/tutorial/quick-start
             https://github.com/e-/skku-todo-2/blob/main/main.js
-3. preload.js: Create an empty JS file
-4. index.html: HTML file
+    3. preload.js: Create an empty JS file
+    4. index.html: HTML file
 
 Main.js:
-
+```js
 const{app, BrowserWindow} = require('electron')
 const path = require('path')
 
@@ -330,8 +351,9 @@ app.on('window-all-closed', () => {
         app.quit()
     }
 })
+```
 
-
+```js
 npm install --save-dev @electron-forge/cli
 npx electron-forge import
 //package.json will be converted
@@ -340,10 +362,10 @@ npm start
 // SKKU-Todo became a desktop app!
 // check if all features work as expected.
 
-make package for distribution
+//make package for distribution
 npm run make
 // No Korean in the pathway
-
+```
 
 find package in the "out" directory
 
@@ -351,9 +373,9 @@ zip and ship all files to distribute your app
 
 
 ## What's next?
-We learned HTML, CSS, JS...
-We learned Node.js, Bootstrap, and unit testing
-We built and published a command-line interface(skku-menu), a Web app(skku-todo), and a desktop app (skku-todo-2)
+- We learned HTML, CSS, JS...
+- We learned Node.js, Bootstrap, and unit testing
+- We built and published a command-line interface(skku-menu), a Web app(skku-todo), and a desktop app (skku-todo-2)
 
 To level up your dev skills further, learn:
 1. JS components of Bootstrap, Twitters's toolkit to enrich your user interface
