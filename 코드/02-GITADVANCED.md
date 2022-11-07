@@ -14,11 +14,11 @@ version 0.9 -> version 1.0 -> version 1.1
 * HEAD -> special pointer to the last commit made
 
 ### Creating a Branch
-- git branch <name> -> creates a new branch <name> based on HEAD 
+- git branch ```<name>``` -> creates a new branch ```<name>``` based on HEAD 
 - git branch -> lists all the branches and the branch you are on
-- git checkout <name> -> switch to branch <name>
-- git checkout -b <name> -> creates and switches to branch <name>
-- git merge <name> -> merge current branch with branch <name>
+- git checkout ```<name>``` -> switch to branch ```<name>```
+- git checkout -b ```<name>``` -> creates and switches to branch ```<name>```
+- git merge ```<name>``` -> merge current branch with branch ```<name>```
 
 
 ### github remote repositories
@@ -42,10 +42,10 @@ two urls for repositories:
 
 ### remote repository code
 - git remote / git remote -v -> shows the remote repositories of the current git
-- git remote add <shortname> <url> -> add <shortname> to <url> repository
-- git remote rename <oldname> <newname> -> rename
-- git remote rm <name> -> remove
-- git push / git push <remote_name> / git push <remote_name> <branch_name> -> pushes / updates your current branch to the remote repository
+- git remote add ```<shortname>``` ```<url>``` -> add ```<shortname>``` to ```<url>``` repository
+- git remote rename ```<oldname>``` ```<newname>``` -> rename
+- git remote rm ```<name>``` -> remove
+- git push / git push ```<remote_name>``` / git push ```<remote_name>``` ```<branch_name>``` -> pushes / updates your current branch to the remote repository
     - there may be errors in merging (must fix the conflict between local and remote version of the branch)
-- git fetch / git fetch <remote_name> -> fetch the remote repository to local and will be in <origin/main> / if you were working on a code before the fetch, that would automatically be branched out to main
+- git fetch / git fetch ```<remote_name>``` -> fetch the remote repository to local and will be in ```<origin/main>``` / if you were working on a code before the fetch, that would automatically be branched out to main
 - git pull -> will fetch the remote repository and update this repository together with the local branch
