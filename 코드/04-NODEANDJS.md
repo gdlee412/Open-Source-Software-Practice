@@ -195,7 +195,7 @@ else if (opType === "sub")
 let ret = opFunc(5, 3);
 ```
 ## Arrow functions
-- the <function> keyword can be omitted as well using arrow functions
+- the ```<function>``` keyword can be omitted as well using arrow functions
 (args) => {body}
 - arrow functions are anonymous
 ```js
