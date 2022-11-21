@@ -27,6 +27,8 @@ git add . -> adds all untracked or modified files to the stage
 
 git commit -> commits a file and becomes unmodified
 
+git commit -a -> commit all modified files without staging
+
 git commit --amend -> commiting additional files
 
 *literally editing a committed/unmodified file* -> file becomes modified state
